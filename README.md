@@ -18,7 +18,7 @@ public class Main{
 }
 ```
 ----------
-##python(AC)
+## python(AC)
 
 ```python
 while True:
