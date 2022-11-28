@@ -64,7 +64,7 @@ int main(){
 #include <stdlib.h>
 #include <string.h>
 
-static void replacestr(char *line, const char *search, const char *replace){
+void replacestr(char *line, const char *search, const char *replace){
     char *sp;
     if((sp = strstr(line, search)) == NULL)
         return;
@@ -78,14 +78,18 @@ static void replacestr(char *line, const char *search, const char *replace){
 }
 
 int main(){
-    char org[130] = {0};
-    char find[130] = {0};
-    char repstr[130] = {0};
+    char org[130];
+    char find[130];
+    char repstr[130];
+    memset(org, 0, 130);
+    memset(find, 0, 130);
+    memset(repstr, 0, 130);
     scanf("%[^\n] ",org);
     scanf("%[^\n] ",find);
     scanf("%[^\n]",repstr);
     replacestr(org,find,repstr);
-    printf("%s",org);
+    puts(org);
     return 0;
+}
 }
 ```
