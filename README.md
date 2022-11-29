@@ -83,9 +83,9 @@ int main(){
     memset(org, 0, 130);
     memset(find, 0, 130);
     memset(repstr, 0, 130);
-    scanf("%[^\n] ",org);
-    scanf("%[^\n] ",find);
-    scanf("%[^\n]",repstr);
+    gets(org);
+    scanf("%s",find);
+    scanf("%s",repstr);
     replacestr(org,find,repstr);
     puts(org);
     return 0;
