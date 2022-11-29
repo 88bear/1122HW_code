@@ -57,7 +57,7 @@ int main(){
 }
 ```
 ----------
-## C(WA)
+## C(AC)
 ```c
 #include <stdio.h> 
 #include <string.h> 
