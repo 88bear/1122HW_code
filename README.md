@@ -1,5 +1,5 @@
 # 字串取代尋找
-### 寫四個是因為我不知道為什麼C/C++不會過，所以寫了四個版本。如果C看不懂可以去google，關鍵字："string search and replace in c"
+### 寫四個是因為我不知道為什麼C++不會過，所以寫了四個版本。如果C看不懂可以去google，關鍵字："string search and replace in c" 我去stack overflow找到個看不懂的寫法@@
 ## Java(AC)
 
 ```java
@@ -59,35 +59,36 @@ int main(){
 ----------
 ## C(WA)
 ```c
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include <stdio.h> 
+#include <string.h> 
+#include <stdlib.h> 
 
-void replacestr(char *line, const char *search, const char *replace){
-    char *sp;
-    if((sp = strstr(line, search)) == NULL)
-        return;
+char *strrpc(char *str,char *oldstr,char *newstr){
+    char bstr[strlen(str)];
+    memset(bstr,0,sizeof(bstr));
+    int i;
+    for(i = 0;i < strlen(str);i++){
+        if(!strncmp(str+i,oldstr,strlen(oldstr))){
+            strcat(bstr,newstr);
+            i += strlen(oldstr) - 1;
+        }else{
+                strncat(bstr,str + i,1);
+            }
+    }
 
-    int search_len = strlen(search);
-    int replace_len = strlen(replace);
-    int tail_len = strlen(sp+search_len);
-  
-    memmove(sp+replace_len, sp+search_len, tail_len+1);
-    memcpy(sp, replace, replace_len);
+    strcpy(str,bstr);
+    return str;
 }
 
+
 int main(){
-    char org[130];
-    char find[130];
-    char repstr[130];
-    memset(org, 0, 130);
-    memset(find, 0, 130);
-    memset(repstr, 0, 130);
+    char org[1001];
+    char find[10];
+    char repstr[10];
     gets(org);
     scanf("%s",find);
     scanf("%s",repstr);
-    replacestr(org,find,repstr);
-    puts(org);
+    puts(strrpc(org,find,repstr));
     return 0;
 }
 ```
