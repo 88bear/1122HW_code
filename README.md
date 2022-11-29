@@ -46,7 +46,7 @@ int main(){
         fpos = org.find(find, fpos);
         if(fpos != string::npos)  {  
             org.replace(fpos, find.size(), rep);
-            fpos = fpos + find.size();  
+            fpos = fpos + rep.size();  
         }
         else{  
             break;  
